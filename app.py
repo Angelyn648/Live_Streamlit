@@ -14,31 +14,33 @@ model = load_model()
 st.title("🎥 Live Object Detection & Tracking")
 st.write("Point your camera at objects to identify them in real-time.")
 
-# Create a video processor class (IMPORTANT FIX)
+# ===== SIDEBAR =====
+st.sidebar.header("⚙️ Settings")
+confidence = st.sidebar.slider("Confidence Threshold", 0.1, 1.0, 0.5)
+
+# ===== VIDEO PROCESSOR =====
 class VideoProcessor(VideoProcessorBase):
     def __init__(self):
         self.model = model
+        self.conf = confidence  # pass slider value
 
     def recv(self, frame):
         img = frame.to_ndarray(format="bgr24")
 
-        # Run YOLOv8 detection (use predict instead of track first)
         results = self.model.predict(
             source=img,
-            conf=0.5,
+            conf=self.conf,
             verbose=False
         )
 
-        # Draw results
         annotated_frame = results[0].plot()
 
         return av.VideoFrame.from_ndarray(annotated_frame, format="bgr24")
 
-
-# Start WebRTC
+# ===== STREAM =====
 webrtc_streamer(
     key="object-detection",
-    video_processor_factory=VideoProcessor,  # FIXED
+    video_processor_factory=VideoProcessor,
     async_processing=True,
     rtc_configuration={
         "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
