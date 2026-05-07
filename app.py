@@ -63,8 +63,8 @@ st.markdown("""
 
     video {
         object-fit: cover !important; 
-        width: 100% !important;
-        height: 100% !important;
+        width: 50% !important;
+        height: 50% !important;
     }
 
     .stWebRtc {
