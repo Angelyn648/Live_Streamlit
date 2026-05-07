@@ -18,13 +18,15 @@ st.markdown("""
         background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
     }
 
+    /* Sidebar Styling */
     section[data-testid="stSidebar"] {
         background-color: rgba(15, 23, 42, 0.9);
         border-right: 1px solid rgba(167, 139, 250, 0.2);
     }
 
+    /* Original Title Styling */
     .title {
-        font-size: 38px;
+        font-size: 45px;
         font-weight: bold;
         text-align: center;
         color: #a78bfa;
@@ -34,51 +36,48 @@ st.markdown("""
 
     .subtitle {
         text-align: center;
-        font-size: 16px;
+        font-size: 18px;
         color: #cbd5f5;
-        margin-bottom: 20px;
-        
+        margin-bottom: 30px;
     }
-    .video-container {
-        max-width: 900px; 
-        margin: 0 auto;
+
+    /* Glassmorphism Card for Video */
+    .card {
         background: rgba(30, 41, 59, 0.5);
         backdrop-filter: blur(10px);
-        border-radius: 15px;
+        border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 15px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        padding: 25px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Video Frame Glow */
+    iframe {
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(167, 139, 250, 0.1);
     }
     
     .stAlert {
-        border-radius: 8px;
-        font-size: 14px;
+        border-radius: 10px;
     }
-    
-    button[data-testid="stBaseButton-secondary"] {
-        padding: 2px 10px !important;
-        font-size: 12px !important;
-        min-height: 25px !important;
-    }
-    
-    div[data-testid="stWebRtcDeviceSelect"] {
-        font-size: 10px !important;
-    }
-    
-    .stWebRtc {
-        gap: 5px !important;
-    }    
     
     video {
-        width: 50% !important;
+        max-width: 350px !important; /* Heto ang magpapa-liit sa mismong video */
         height: auto !important;
-        border-radius: 5px;
+        margin: 0 auto;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .stWebRtc {
+        width: 350px !important;
+        margin: 0 auto !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
 # -------------------- HEADER --------------------
-st.markdown('<div class="title"> Live Object Detection & Tracing </div>', unsafe_allow_html=True)
+st.markdown('<div class="title"> Live Object Detection & Tracing</div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">Real-time AI detection using YOLOv8</div>', unsafe_allow_html=True)
 
 # -------------------- SIDEBAR --------------------
@@ -100,15 +99,22 @@ def load_model(name):
 model = load_model(model_option)
 
 # -------------------- MAIN --------------------
-st.markdown('<div class="video-container">', unsafe_allow_html=True)
+st.markdown('<div class="card">', unsafe_allow_html=True)
 
-st.info("Allow camera access to start.")
+st.info("Allow camera access. Detection will start automatically.")
 
-# -------------------- CALLBACK --------------------
+# -------------------- CALLBACK (ONLY PROCESS IMAGE) --------------------
 def video_frame_callback(frame):
     img = frame.to_ndarray(format="bgr24")
-    results = model.predict(img, conf=confidence, verbose=False)
+
+    results = model.predict(
+        img,
+        conf=confidence,
+        verbose=False
+    )
+
     annotated_frame = results[0].plot()
+
     return av.VideoFrame.from_ndarray(annotated_frame, format="bgr24")
 
 # -------------------- STREAM --------------------
@@ -122,8 +128,9 @@ webrtc_streamer(
     media_stream_constraints={"video": True, "audio": False},
 )
 
-st.success("Camera ready")
+st.success(" Camera ready")
+
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
-st.markdown("<br><p style='text-align: center; color: #64748b; font-size: 0.8rem;'>@2026 Live Object Detection System | Developed by: Angelyn V. Sto.Domingo</p>", unsafe_allow_html=True)
+st.markdown("<br><p style='text-align: center; color: #64748b; font-size: 0.8rem;'>@2026 Live Object Detection System| Develop by: [Angelyn V. Sto.Domingo]</p>", unsafe_allow_html=True)
