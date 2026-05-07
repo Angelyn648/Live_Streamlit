@@ -42,14 +42,14 @@ st.markdown("""
 
     /* Glassmorphism Card + Size Control */
     .video-container {
-        max-width: 200px; 
+        max-width: 800px; 
         margin: 0 auto;  
         background: rgba(30, 41, 59, 0.5);
         backdrop-filter: blur(10px);
-        border-radius: 20px;
+        border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 20px;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        padding: 10px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
     }
 
     iframe {
