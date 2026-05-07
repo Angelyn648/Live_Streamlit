@@ -37,10 +37,9 @@ st.markdown("""
         color: #cbd5f5;
         margin-bottom: 20px;
     }
-
-    /* MINI VIDEO CONTAINER */
+    
     .video-container {
-        max-width: 400px; /* Pinaliit ang box ng camera */
+        max-width: 800px; 
         margin: 0 auto;
         background: rgba(30, 41, 59, 0.5);
         backdrop-filter: blur(10px);
@@ -50,21 +49,18 @@ st.markdown("""
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     }
 
-    /* PINAPALIIT ANG MISMONG VIDEO FEED */
     video {
         max-width: 50% !important;
         height: auto !important;
         border-radius: 10px;
     }
 
-    /* PINAPALIIT ANG START/STOP BUTTON */
     button[data-testid="stBaseButton-secondary"] {
         padding: 2px 10px !important;
         font-size: 12px !important;
         min-height: 25px !important;
     }
 
-    /* PINAPALIIT ANG WEBRTC CONTROL BAR */
     div[data-testid="stWebRtcDeviceSelect"] {
         font-size: 10px !important;
     }
@@ -75,7 +71,7 @@ st.markdown("""
     }
 
     .stWebRtc {
-        gap: 5px !important;
+        gap: 4px !important;
     }
 </style>
 """, unsafe_allow_html=True)
