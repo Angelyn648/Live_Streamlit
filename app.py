@@ -45,14 +45,16 @@ st.markdown("""
         backdrop-filter: blur(10px);
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 15px;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        padding: 10px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
     }
 
     video {
         max-width: 50% !important;
         height: auto !important;
-        border-radius: 10px;
+        border-radius: 12px;
+        margin: 0 auto;
+        display: block;
     }
 
     button[data-testid="stBaseButton-secondary"] {
@@ -65,13 +67,8 @@ st.markdown("""
         font-size: 10px !important;
     }
 
-    .stAlert {
-        border-radius: 10px;
-        padding: 10px;
-    }
-
     .stWebRtc {
-        gap: 4px !important;
+        gap: 2px !important;
     }
 </style>
 """, unsafe_allow_html=True)
