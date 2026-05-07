@@ -42,8 +42,8 @@ st.markdown("""
 
     /* Glassmorphism Card + Size Control */
     .video-container {
-        max-width: 800px; /* Heto ang nagpaliit sa camera */
-        margin: 0 auto;   /* Para maging centered */
+        max-width: 500px; 
+        margin: 0 auto;  
         background: rgba(30, 41, 59, 0.5);
         backdrop-filter: blur(10px);
         border-radius: 20px;
