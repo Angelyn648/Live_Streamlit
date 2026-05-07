@@ -24,7 +24,7 @@ st.markdown("""
     }
 
     .title {
-        font-size: 38px; /* Binawasan ang laki para balanse */
+        font-size: 38px;
         font-weight: bold;
         text-align: center;
         color: #a78bfa;
@@ -37,11 +37,11 @@ st.markdown("""
         font-size: 16px;
         color: #cbd5f5;
         margin-bottom: 20px;
+        
     }
-
     .video-container {
-        max-width: 400px; /* PINALIIT: Mula 800px ginawang 400px */
-        margin: 0 auto;   /* Centered pa rin */
+        max-width: 400px; 
+        margin: 0 auto;
         background: rgba(30, 41, 59, 0.5);
         backdrop-filter: blur(10px);
         border-radius: 15px;
@@ -49,14 +49,30 @@ st.markdown("""
         padding: 15px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     }
-
-    iframe {
-        border-radius: 10px;
-    }
     
     .stAlert {
         border-radius: 8px;
         font-size: 14px;
+    }
+    
+    button[data-testid="stBaseButton-secondary"] {
+        padding: 2px 10px !important;
+        font-size: 12px !important;
+        min-height: 25px !important;
+    }
+    
+    div[data-testid="stWebRtcDeviceSelect"] {
+        font-size: 10px !important;
+    }
+    
+    .stWebRtc {
+        gap: 5px !important;
+    }    
+    
+    video {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 10px;
     }
 </style>
 """, unsafe_allow_html=True)
