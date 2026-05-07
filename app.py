@@ -106,8 +106,8 @@ webrtc_streamer(
     },
     media_stream_constraints={
         "video": {
-            "width": {"ideal": 480},
-            "height": {"ideal": 480},
+            "width": {"ideal": 400},
+            "height": {"ideal": 400},
             "frameRate": {"ideal": 20}
         },
         "audio": False
