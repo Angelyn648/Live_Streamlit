@@ -49,7 +49,7 @@ st.markdown("""
         padding: 25px;
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         
-        max-width: 400px; 
+        max-width: 200px; 
         margin: 0 auto;
     }
 
