@@ -17,46 +17,37 @@ st.markdown("""
         background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
     }
 
-    section[data-testid="stSidebar"] {
-        background-color: rgba(15, 23, 42, 0.9);
-        border-right: 1px solid rgba(167, 139, 250, 0.2);
-    }
-
-    .title {
-        font-size: 45px;
-        font-weight: bold;
-        text-align: center;
-        color: #a78bfa;
-        margin-top: -20px;
-        text-shadow: 0px 4px 10px rgba(167, 139, 250, 0.3);
-    }
-
     .card {
         background: rgba(30, 41, 59, 0.5);
         backdrop-filter: blur(10px);
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 25px;
+        padding: 20px;
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         
-        max-width: 350px; 
+        max-width: 450px; 
         margin: 0 auto;
-        text-align: center;
     }
 
     div[data-testid="stWebRtc"] > div {
-        aspect-ratio: 1 / 1 !important;
+        aspect-ratio: 1 / 1 !important; 
         overflow: hidden;
         border-radius: 12px;
     }
 
     video {
-        aspect-ratio: 1 / 1 !important;
-        object-fit: cover !important; 
         width: 100% !important;
         height: 100% !important;
+        aspect-ratio: 1 / 1 !important;
+        object-fit: cover !important; 
         border-radius: 12px;
     }
+
+    button[data-testid="stBaseButton-secondary"] {
+        padding: 2px 15px !important;
+        font-size: 12px !important;
+    }
+    
 </style>
 """, unsafe_allow_html=True)
 
