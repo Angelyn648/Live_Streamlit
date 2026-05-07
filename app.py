@@ -40,7 +40,7 @@ st.markdown("""
         
     }
     .video-container {
-        max-width: 400px; 
+        max-width: 900px; 
         margin: 0 auto;
         background: rgba(30, 41, 59, 0.5);
         backdrop-filter: blur(10px);
@@ -70,9 +70,9 @@ st.markdown("""
     }    
     
     video {
-        width: 100% !important;
+        width: 50% !important;
         height: auto !important;
-        border-radius: 10px;
+        border-radius: 5px;
     }
 </style>
 """, unsafe_allow_html=True)
