@@ -17,42 +17,71 @@ st.markdown("""
         background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
     }
 
-    .card {
+    section[data-testid="stSidebar"] {
+        background-color: rgba(15, 23, 42, 0.9);
+        border-right: 1px solid rgba(167, 139, 250, 0.2);
+    }
+
+    .title {
+        font-size: 38px;
+        font-weight: bold;
+        text-align: center;
+        color: #a78bfa;
+        margin-top: -20px;
+        text-shadow: 0px 4px 10px rgba(167, 139, 250, 0.3);
+    }
+
+    .subtitle {
+        text-align: center;
+        font-size: 16px;
+        color: #cbd5f5;
+        margin-bottom: 20px;
+    }
+
+    /* MINI VIDEO CONTAINER */
+    .video-container {
+        max-width: 400px; /* Pinaliit ang box ng camera */
+        margin: 0 auto;
         background: rgba(30, 41, 59, 0.5);
         backdrop-filter: blur(10px);
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 20px;
+        padding: 15px;
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-        
-        max-width: 450px; 
-        margin: 0 auto;
     }
 
-    div[data-testid="stWebRtc"] > div {
-        aspect-ratio: 1 / 1 !important; 
-        overflow: hidden;
-        border-radius: 12px;
-    }
-
+    /* PINAPALIIT ANG MISMONG VIDEO FEED */
     video {
-        width: 100% !important;
-        height: 100% !important;
-        aspect-ratio: 1 / 1 !important;
-        object-fit: cover !important; 
-        border-radius: 12px;
+        max-width: 50% !important;
+        height: auto !important;
+        border-radius: 10px;
     }
 
+    /* PINAPALIIT ANG START/STOP BUTTON */
     button[data-testid="stBaseButton-secondary"] {
-        padding: 2px 15px !important;
+        padding: 2px 10px !important;
         font-size: 12px !important;
+        min-height: 25px !important;
     }
-    
+
+    /* PINAPALIIT ANG WEBRTC CONTROL BAR */
+    div[data-testid="stWebRtcDeviceSelect"] {
+        font-size: 10px !important;
+    }
+
+    .stAlert {
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .stWebRtc {
+        gap: 5px !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 # -------------------- HEADER --------------------
-st.markdown('<div class="title"> Live Object Detection & Tracing</div>', unsafe_allow_html=True)
+st.markdown('<div class="title"> Live Object Detection & Tracing </div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">Real-time AI detection using YOLOv8</div>', unsafe_allow_html=True)
 
 # -------------------- SIDEBAR --------------------
@@ -74,22 +103,15 @@ def load_model(name):
 model = load_model(model_option)
 
 # -------------------- MAIN --------------------
-st.markdown('<div class="card">', unsafe_allow_html=True)
+st.markdown('<div class="video-container">', unsafe_allow_html=True)
 
-st.info("Allow camera access. Detection will start automatically.")
+st.info("Allow camera access to start.")
 
-# -------------------- CALLBACK (ONLY PROCESS IMAGE) --------------------
+# -------------------- CALLBACK --------------------
 def video_frame_callback(frame):
     img = frame.to_ndarray(format="bgr24")
-
-    results = model.predict(
-        img,
-        conf=confidence,
-        verbose=False
-    )
-
+    results = model.predict(img, conf=confidence, verbose=False)
     annotated_frame = results[0].plot()
-
     return av.VideoFrame.from_ndarray(annotated_frame, format="bgr24")
 
 # -------------------- STREAM --------------------
@@ -103,9 +125,8 @@ webrtc_streamer(
     media_stream_constraints={"video": True, "audio": False},
 )
 
-st.success(" Camera ready")
-
+st.success("Camera ready")
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
-st.markdown("<br><p style='text-align: center; color: #64748b; font-size: 0.8rem;'>@2026 Live Object Detection System| Develop by: [Angelyn V. Sto.Domingo]</p>", unsafe_allow_html=True)
+st.markdown("<br><p style='text-align: center; color: #64748b; font-size: 0.8rem;'>@2026 Live Object Detection System | Developed by: Angelyn V. Sto.Domingo</p>", unsafe_allow_html=True)
