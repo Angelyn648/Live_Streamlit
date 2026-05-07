@@ -6,7 +6,7 @@ import cv2
 
 # -------------------- PAGE CONFIG --------------------
 st.set_page_config(
-    page_title="AI Vision Pro | Live Detection",
+    page_title="Live Object Detection",
     page_icon="🤖",
     layout="wide"
 )
