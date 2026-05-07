@@ -37,17 +37,6 @@ st.markdown("""
         color: #cbd5f5;
         margin-bottom: 20px;
     }
-    
-    .video-container {
-        max-width: 800px; 
-        margin: 0 auto;
-        background: rgba(30, 41, 59, 0.5);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 10px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
-    }
 
     video {
         max-width: 50% !important;
@@ -64,7 +53,18 @@ st.markdown("""
     }
 
     div[data-testid="stWebRtcDeviceSelect"] {
-        font-size: 10px !important;
+        aspect-ratio: 1 / 1 !important; 
+        max-width: 300px !important;    
+        margin: 0 auto;                 
+        overflow: hidden;
+        border-radius: 15px;
+        border: 2px solid rgba(167, 139, 250, 0.5); /* Optional: glow border */
+    }
+
+    video {
+        object-fit: cover !important;   /* Para maging square ang crop nang hindi ka stretch */
+        width: 100% !important;
+        height: 100% !important;
     }
 
     .stWebRtc {
