@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# -------------------- STYLE --------------------
+# -------------------- STYLE (UPDATED) --------------------
 st.markdown("""
 <style>
     /* Main Background */
@@ -24,7 +24,6 @@ st.markdown("""
         border-right: 1px solid rgba(167, 139, 250, 0.2);
     }
 
-    /* Original Title Styling */
     .title {
         font-size: 45px;
         font-weight: bold;
@@ -41,20 +40,20 @@ st.markdown("""
         margin-bottom: 30px;
     }
 
-    /* Glassmorphism Card for Video */
-    .card {
+    /* Glassmorphism Card + Size Control */
+    .video-container {
+        max-width: 800px; /* Heto ang nagpaliit sa camera */
+        margin: 0 auto;   /* Para maging centered */
         background: rgba(30, 41, 59, 0.5);
         backdrop-filter: blur(10px);
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 25px;
+        padding: 20px;
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     }
 
-    /* Video Frame Glow */
     iframe {
         border-radius: 12px;
-        box-shadow: 0 0 15px rgba(167, 139, 250, 0.1);
     }
     
     .stAlert {
@@ -86,22 +85,16 @@ def load_model(name):
 model = load_model(model_option)
 
 # -------------------- MAIN --------------------
-st.markdown('<div class="card">', unsafe_allow_html=True)
+# Ginamit ang 'video-container' class para sakto lang ang laki
+st.markdown('<div class="video-container">', unsafe_allow_html=True)
 
 st.info("Allow camera access. Detection will start automatically.")
 
-# -------------------- CALLBACK (ONLY PROCESS IMAGE) --------------------
+# -------------------- CALLBACK --------------------
 def video_frame_callback(frame):
     img = frame.to_ndarray(format="bgr24")
-
-    results = model.predict(
-        img,
-        conf=confidence,
-        verbose=False
-    )
-
+    results = model.predict(img, conf=confidence, verbose=False)
     annotated_frame = results[0].plot()
-
     return av.VideoFrame.from_ndarray(annotated_frame, format="bgr24")
 
 # -------------------- STREAM --------------------
@@ -116,8 +109,7 @@ webrtc_streamer(
 )
 
 st.success(" Camera ready")
-
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
-st.markdown("<br><p style='text-align: center; color: #64748b; font-size: 0.8rem;'>@2026 Live Object Detection System| Develop by: [Angelyn V. Sto.Domingo]</p>", unsafe_allow_html=True)
+st.markdown("<br><p style='text-align: center; color: #64748b; font-size: 0.8rem;'>@2026 Live Object Detection System | Developed by: Angelyn V. Sto.Domingo</p>", unsafe_allow_html=True)
