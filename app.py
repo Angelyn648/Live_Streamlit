@@ -41,24 +41,18 @@ st.markdown("""
         margin-bottom: 30px;
     }
 
-    .card {
-        background: rgba(30, 41, 59, 0.5);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 25px;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-        
-        max-width: 200px; 
-        margin: 0 auto;
-    }
-
     video {
-        width: 100% !important;
-        height: auto !important;
+        aspect-ratio: 1 / 1 !important;
+        max-width: 300px !important;  
+        height: auto !important;   
+        
+        margin: 0 auto;
+        display: block;
+        
         border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
-    
+
 </style>
 """, unsafe_allow_html=True)
 
