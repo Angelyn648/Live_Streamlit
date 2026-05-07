@@ -121,11 +121,3 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
 st.markdown("<br><p style='text-align: center; color: #64748b; font-size: 0.8rem;'>@2026 Live Object Detection System| Develop by: [Angelyn V. Sto.Domingo]</p>", unsafe_allow_html=True)
-
-st.markdown("""
-<hr style="border:0.5px solid rgba(167, 139, 250, 0.2)">
-<div style="text-align: center; color: #94a3b8; font-family: sans-serif;">
-    <p style="margin-bottom: 5px;"><strong>Project:</strong> @2026 Live Object Detection System</p>
-    <p style="font-size: 0.9rem;">Developed by: <span style="color: #a78bfa;">[Angelyn V. Sto.Domingo]</span></p>
-</div>
-""", unsafe_allow_html=True)
