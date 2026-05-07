@@ -13,18 +13,15 @@ st.set_page_config(
 # -------------------- STYLE --------------------
 st.markdown("""
 <style>
-    /* Main Background */
     .stApp {
         background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
     }
 
-    /* Sidebar Styling */
     section[data-testid="stSidebar"] {
         background-color: rgba(15, 23, 42, 0.9);
         border-right: 1px solid rgba(167, 139, 250, 0.2);
     }
 
-    /* Original Title Styling */
     .title {
         font-size: 45px;
         font-weight: bold;
@@ -34,25 +31,32 @@ st.markdown("""
         text-shadow: 0px 4px 10px rgba(167, 139, 250, 0.3);
     }
 
-    .subtitle {
+    .card {
+        background: rgba(30, 41, 59, 0.5);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 25px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        
+        max-width: 350px; 
+        margin: 0 auto;
         text-align: center;
-        font-size: 18px;
-        color: #cbd5f5;
-        margin-bottom: 30px;
+    }
+
+    div[data-testid="stWebRtc"] > div {
+        aspect-ratio: 1 / 1 !important;
+        overflow: hidden;
+        border-radius: 12px;
     }
 
     video {
         aspect-ratio: 1 / 1 !important;
-        max-width: 300px !important;  
-        height: auto !important;   
-        
-        margin: 0 auto;
-        display: block;
-        
+        object-fit: cover !important; 
+        width: 100% !important;
+        height: 100% !important;
         border-radius: 12px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
-
 </style>
 """, unsafe_allow_html=True)
 
