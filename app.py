@@ -104,7 +104,14 @@ webrtc_streamer(
             {"urls": ["stun:stun.l.google.com:19302", "stun:stun1.l.google.com:19302", "stun:stun2.l.google.com:19302"]}
         ]
     },
-    media_stream_constraints={"video": True, "audio": False},
+    media_stream_constraints={
+        "video": {
+            "width": {"ideal": 480},
+            "height": {"ideal": 480},
+            "frameRate": {"ideal": 20}
+        },
+        "audio": False
+    },
 )
 st.success(" Camera ready")
 
