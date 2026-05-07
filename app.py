@@ -82,7 +82,7 @@ st.markdown("""
 
 # -------------------- HEADER --------------------
 st.markdown('<div class="title"> Live Object Detection & Tracing </div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">Real-time AI detection using YOLOv8</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Point your camera at objects to identify them in real-time.</div>', unsafe_allow_html=True)
 
 # -------------------- SIDEBAR --------------------
 st.sidebar.markdown("<h3 style='color: #a78bfa;'>⚙️ Settings</h3>", unsafe_allow_html=True)
