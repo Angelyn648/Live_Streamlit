@@ -58,11 +58,11 @@ st.markdown("""
         margin: 0 auto;                 
         overflow: hidden;
         border-radius: 15px;
-        border: 2px solid rgba(167, 139, 250, 0.5); /* Optional: glow border */
+        border: 2px solid rgba(167, 139, 250, 0.5);
     }
 
     video {
-        object-fit: cover !important;   /* Para maging square ang crop nang hindi ka stretch */
+        object-fit: cover !important; 
         width: 100% !important;
         height: 100% !important;
     }
