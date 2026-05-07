@@ -120,4 +120,4 @@ st.success(" Camera ready")
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
-st.markdown("<br><p style='text-align: center; color: #475569; font-size: 0.8rem;'>Hands-on Activity: AI & Computer Vision 2026</p>", unsafe_allow_html=True)
+st.markdown("<br><p style='text-align: center; color: #64748b; font-size: 0.8rem;'>@2026 Live Object Detection System| Develop by: [Angelyn V. Sto.Domingo]</p>", unsafe_allow_html=True)
