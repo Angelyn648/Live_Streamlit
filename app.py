@@ -40,14 +40,17 @@ st.markdown("""
 
     video {
         aspect-ratio: 1 / 1 !important;
-        max-width: 300px !important;  
-        height: auto !important;   
-        
+        width: 250px !important;
+        height: 250px !important;
+
         margin: 0 auto;
         display: block;
-        
+
         border-radius: 12px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border: 2px solid #3b82f6;
+
+        object-fit: cover;
+
     }
 
 </style>
