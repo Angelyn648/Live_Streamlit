@@ -5,7 +5,7 @@ import av
 
 # -------------------- PAGE CONFIG --------------------
 st.set_page_config(
-    page_title="Live Object Detection",
+    page_title="Live Object Detection & Tracing",
     page_icon="🎥",
     layout="wide"
 )
@@ -64,7 +64,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # -------------------- HEADER --------------------
-st.markdown('<div class="title"> Live Object Detection</div>', unsafe_allow_html=True)
+st.markdown('<div class="title"> Live Object Detection & Tracing </div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">Real-time AI detection using YOLOv8</div>', unsafe_allow_html=True)
 
 # -------------------- SIDEBAR --------------------
