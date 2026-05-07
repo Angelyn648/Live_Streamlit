@@ -62,7 +62,7 @@ st.markdown("""
     }
     
     video {
-        max-width: 350px !important; /* Heto ang magpapa-liit sa mismong video */
+        max-width: 250px !important; 
         height: auto !important;
         margin: 0 auto;
         display: block;
@@ -70,7 +70,7 @@ st.markdown("""
     }
 
     .stWebRtc {
-        width: 350px !important;
+        width: 250px !important;
         margin: 0 auto !important;
     }
 </style>
