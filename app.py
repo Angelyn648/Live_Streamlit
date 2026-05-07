@@ -62,7 +62,7 @@ st.markdown("""
     }
     
     video {
-        max-width: 100px !important; 
+        max-width: 0px !important; 
         height: auto !important;
         margin: 0 auto;
         display: block;
@@ -70,7 +70,7 @@ st.markdown("""
     }
 
     .stWebRtc {
-        width: 100px !important;
+        width: 0px !important;
         margin: 0 auto !important;
     }
 </style>
