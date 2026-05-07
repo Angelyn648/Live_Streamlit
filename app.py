@@ -7,7 +7,7 @@ import av
 st.set_page_config(
     page_title="Live Object Detection & Tracing",
     page_icon="🎥",
-    layout="wide"
+    layout="square"
 )
 
 # -------------------- STYLE --------------------
