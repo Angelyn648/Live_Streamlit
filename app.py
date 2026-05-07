@@ -13,7 +13,6 @@ st.set_page_config(
 # -------------------- STYLE --------------------
 st.markdown("""
 <style>
-    /* Main Background */
     .stApp {
         background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
     }
