@@ -19,11 +19,11 @@ st.markdown("""
 
     section[data-testid="stSidebar"] {
         background-color: rgba(15, 23, 42, 0.9);
-        border-right: 1px solid rgba(167, 139, 250, 0.2);
+        border-right: 0px solid rgba(167, 139, 250, 0.2);
     }
 
     .title {
-        font-size: 45px;
+        font-size: 35px;
         font-weight: bold;
         text-align: center;
         color: #a78bfa;
@@ -35,7 +35,7 @@ st.markdown("""
         text-align: center;
         font-size: 18px;
         color: #cbd5f5;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
     }
 
     video {
@@ -77,10 +77,9 @@ model = load_model(model_option)
 
 # -------------------- MAIN --------------------
 st.markdown('<div class="card">', unsafe_allow_html=True)
-
 st.info("Allow camera access. Detection will start automatically.")
 
-# -------------------- CALLBACK (ONLY PROCESS IMAGE) --------------------
+# -------------------- CALLBACK --------------------
 def video_frame_callback(frame):
     img = frame.to_ndarray(format="bgr24")
 
